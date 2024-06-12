@@ -70,8 +70,11 @@ For now, these are some of the questions we need to answer, this may change as w
 ## Tools Used 
 
 Excel - Exploring the data
+
 SQL Server - Cleaning, testing, and analyzing the data
+
 Power BI - Visualizing the data via interactive dashboards
+
 GitHub - Hosting the project documentation and version control
 
 ## Development
