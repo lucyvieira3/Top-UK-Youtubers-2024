@@ -91,167 +91,39 @@ What's the general approach in creating this solution from start to finish?
 8. Write the documentation + commentary
 9. Publish the data to GitHub Pages
 
-Data cleaning
-What do we expect the clean data to look like? (What should it contain? What contraints should we apply to it?)
-The aim is to refine our dataset to ensure it is structured and ready for analysis.
+# Visualization
 
-The cleaned data should meet the following criteria and constraints:
+## Results
 
-Only relevant columns should be retained.
-All data types should be appropriate for the contents of each column.
-No column should contain null values, indicating complete data for all records.
-Below is a table outlining the constraints on our cleaned dataset:
+<img width="907" alt="powerbi_dashboard" src="https://github.com/lucyvieira3/Top-UK-Youtubers-2024/assets/153330654/72281c09-0d09-49a2-868b-9f14f503002e">
 
-Property	Description
-Number of Rows	100
-Number of Columns	4
-And here is a tabular representation of the expected schema for the clean data:
+# DAX Measures
 
-Column Name	Data Type	Nullable
-channel_name	VARCHAR	NO
-total_subscribers	INTEGER	NO
-total_views	INTEGER	NO
-total_videos	INTEGER	NO
-What steps are needed to clean and shape the data into the desired format?
-Remove unnecessary columns by only selecting the ones you need
-Extract Youtube channel names from the first column
-Rename columns using aliases
-Transform the data
-/*
-# 1. Select the required columns
-# 2. Extract the channel name from the 'NOMBRE' column
-*/
+## 1. Total Subscribers (M)
 
--- 1.
-SELECT
-    SUBSTRING(NOMBRE, 1, CHARINDEX('@', NOMBRE) -1) AS channel_name,  -- 2.
-    total_subscribers,
-    total_views,
-    total_videos
-
-FROM
-    top_uk_youtubers_2024
-Create the SQL view
-/*
-# 1. Create a view to store the transformed data
-# 2. Cast the extracted channel name as VARCHAR(100)
-# 3. Select the required columns from the top_uk_youtubers_2024 SQL table 
-*/
-
--- 1.
-CREATE VIEW view_uk_youtubers_2024 AS
-
--- 2.
-SELECT
-    CAST(SUBSTRING(NOMBRE, 1, CHARINDEX('@', NOMBRE) -1) AS VARCHAR(100)) AS channel_name, -- 2. 
-    total_subscribers,
-    total_views,
-    total_videos
-
--- 3.
-FROM
-    top_uk_youtubers_2024
-Testing
-What data quality and validation checks are you going to create?
-Here are the data quality tests conducted:
-
-Row count check
-/*
-# Count the total number of records (or rows) are in the SQL view
-*/
-
-SELECT
-    COUNT(*) AS no_of_rows
-FROM
-    view_uk_youtubers_2024;
-Row count check
-
-Column count check
-SQL query
-/*
-# Count the total number of columns (or fields) are in the SQL view
-*/
-
-
-SELECT
-    COUNT(*) AS column_count
-FROM
-    INFORMATION_SCHEMA.COLUMNS
-WHERE
-    TABLE_NAME = 'view_uk_youtubers_2024'
-Output
-Column count check
-
-Data type check
-SQL query
-/*
-# Check the data types of each column from the view by checking the INFORMATION SCHEMA view
-*/
-
--- 1.
-SELECT
-    COLUMN_NAME,
-    DATA_TYPE
-FROM
-    INFORMATION_SCHEMA.COLUMNS
-WHERE
-    TABLE_NAME = 'view_uk_youtubers_2024';
-Output
-Data type check
-
-Duplicate count check
-SQL query
-/*
-# 1. Check for duplicate rows in the view
-# 2. Group by the channel name
-# 3. Filter for groups with more than one row
-*/
-
--- 1.
-SELECT
-    channel_name,
-    COUNT(*) AS duplicate_count
-FROM
-    view_uk_youtubers_2024
-
--- 2.
-GROUP BY
-    channel_name
-
--- 3.
-HAVING
-    COUNT(*) > 1;
-Output
-Duplicate count check
-
-Visualization
-Results
-What does the dashboard look like?
-GIF of Power BI Dashboard
-
-This shows the Top UK Youtubers in 2024 so far.
-
-DAX Measures
-1. Total Subscribers (M)
 Total Subscribers (M) = 
 VAR million = 1000000
 VAR sumOfSubscribers = SUM(view_uk_youtubers_2024[total_subscribers])
 VAR totalSubscribers = DIVIDE(sumOfSubscribers,million)
 
 RETURN totalSubscribers
-2. Total Views (B)
+
+## 2. Total Views (B)
+
 Total Views (B) = 
 VAR billion = 1000000000
 VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
 VAR totalViews = ROUND(sumOfTotalViews / billion, 2)
 
 RETURN totalViews
-3. Total Videos
+
+## 3. Total Videos
 Total Videos = 
 VAR totalVideos = SUM(view_uk_youtubers_2024[total_videos])
 
 RETURN totalVideos
-4. Average Views Per Video (M)
+
+## 4. Average Views Per Video (M)
 Average Views per Video (M) = 
 VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
 VAR sumOfTotalVideos = SUM(view_uk_youtubers_2024[total_videos])
@@ -259,34 +131,28 @@ VAR  avgViewsPerVideo = DIVIDE(sumOfTotalViews,sumOfTotalVideos, BLANK())
 VAR finalAvgViewsPerVideo = DIVIDE(avgViewsPerVideo, 1000000, BLANK())
 
 RETURN finalAvgViewsPerVideo 
-5. Subscriber Engagement Rate
+
+## 5. Subscriber Engagement Rate
 Subscriber Engagement Rate = 
 VAR sumOfTotalSubscribers = SUM(view_uk_youtubers_2024[total_subscribers])
 VAR sumOfTotalVideos = SUM(view_uk_youtubers_2024[total_videos])
 VAR subscriberEngRate = DIVIDE(sumOfTotalSubscribers, sumOfTotalVideos, BLANK())
 
 RETURN subscriberEngRate 
-6. Views per subscriber
+
+## 6. Views per subscriber
 Views Per Subscriber = 
 VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
 VAR sumOfTotalSubscribers = SUM(view_uk_youtubers_2024[total_subscribers])
 VAR viewsPerSubscriber = DIVIDE(sumOfTotalViews, sumOfTotalSubscribers, BLANK())
 
 RETURN viewsPerSubscriber 
-Analysis
-Findings
-What did we find?
-For this analysis, we're going to focus on the questions below to get the information we need for our marketing client -
 
-Here are the key questions we need to answer for our marketing client:
+# Analysis
 
-Who are the top 10 YouTubers with the most subscribers?
-Which 3 channels have uploaded the most videos?
-Which 3 channels have the most views?
-Which 3 channels have the highest average views per video?
-Which 3 channels have the highest views per subscriber ratio?
-Which 3 channels have the highest subscriber engagement rate per video uploaded?
-1. Who are the top 10 YouTubers with the most subscribers?
+## Findings
+
+## 1. Who are the top 10 YouTubers with the most subscribers?
 Rank	Channel Name	Subscribers (M)
 1	NoCopyrightSounds	33.60
 2	DanTDM	28.60
@@ -298,38 +164,42 @@ Rank	Channel Name	Subscribers (M)
 8	Dua Lipa	23.30
 9	Sidemen	21.00
 10	Ali-A	18.90
-2. Which 3 channels have uploaded the most videos?
+   
+## 3. Which 3 channels have uploaded the most videos?
 Rank	Channel Name	Videos Uploaded
 1	GRM Daily	14,696
 2	Manchester City	8,248
 3	Yogscast	6,435
-3. Which 3 channels have the most views?
+
+## 4. Which 3 channels have the most views?
 Rank	Channel Name	Total Views (B)
 1	DanTDM	19.78
 2	Dan Rhodes	18.56
 3	Mister Max	15.97
-4. Which 3 channels have the highest average views per video?
+
+## 5. Which 3 channels have the highest average views per video?
 Channel Name	Averge Views per Video (M)
 Mark Ronson	32.27
 Jessie J	5.97
 Dua Lipa	5.76
-5. Which 3 channels have the highest views per subscriber ratio?
+
+## 6. Which 3 channels have the highest views per subscriber ratio?
 Rank	Channel Name	Views per Subscriber
 1	GRM Daily	1185.79
 2	Nickelodeon	1061.04
 3	Disney Junior UK	1031.97
-6. Which 3 channels have the highest subscriber engagement rate per video uploaded?
+
+## 7. Which 3 channels have the highest subscriber engagement rate per video uploaded?
 Rank	Channel Name	Subscriber Engagement Rate
 1	Mark Ronson	343,000
 2	Jessie J	110,416.67
 3	Dua Lipa	104,954.95
-Notes
-For this analysis, we'll prioritize analysing the metrics that are important in generating the expected ROI for our marketing client, which are the YouTube channels wuth the most
 
-subscribers
-total views
-videos uploaded
-Validation
+## Notes
+For this analysis, we'll prioritize analysing the metrics that are important in generating the expected ROI for our marketing client, which are the YouTube channels with the most subscribers, total views, and videos uploaded.
+
+# Validation
+
 1. Youtubers with the most subscribers
 Calculation breakdown
 Campaign idea = product placement
