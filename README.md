@@ -45,7 +45,6 @@ Where is the data coming from? The data is sourced from Kaggle (an Excel extract
 
 - Design
 - Developement
-- Testing
 - Analysis
   
 # Design
@@ -200,27 +199,27 @@ For this analysis, we'll prioritize analysing the metrics that are important in 
 
 # Validation
 
-1. Youtubers with the most subscribers
+## 1. Youtubers with the most subscribers
 Calculation breakdown
 Campaign idea = product placement
 
-NoCopyrightSounds
+## a. NoCopyrightSounds
 Average views per video = 6.92 million
 Product cost = $5
 Potential units sold per video = 6.92 million x 2% conversion rate = 138,400 units sold
 Potential revenue per video = 138,400 x $5 = $692,000
 Campaign cost (one-time fee) = $50,000
 Net profit = $692,000 - $50,000 = $642,000
-b. DanTDM
 
+## b. DanTDM
 Average views per video = 5.34 million
 Product cost = $5
 Potential units sold per video = 5.34 million x 2% conversion rate = 106,800 units sold
 Potential revenue per video = 106,800 x $5 = $534,000
 Campaign cost (one-time fee) = $50,000
 Net profit = $534,000 - $50,000 = $484,000
-c. Dan Rhodes
 
+## c. Dan Rhodes
 Average views per video = 11.15 million
 Product cost = $5
 Potential units sold per video = 11.15 million x 2% conversion rate = 223,000 units sold
@@ -229,8 +228,7 @@ Campaign cost (one-time fee) = $50,000
 Net profit = $1,115,000 - $50,000 = $1,065,000
 Best option from category: Dan Rhodes
 
-
-2. Youtubers with the most videos uploaded
+## 2. Youtubers with the most videos uploaded
 Calculation breakdown
 Campaign idea = sponsored video series
 
@@ -259,34 +257,34 @@ Campaign cost (11-videos @ $5,000 each) = $55,000
 Net profit = $71,000 - $55,000 = $16,000 (profit)
 Best option from category: Yogscast
 
-3. Youtubers with the most views
+## 3. Youtubers with the most views
 Calculation breakdown
 Campaign idea = Influencer marketing
 
-a. DanTDM
-
+## a. DanTDM
 Average views per video = 5.34 million
 Product cost = $5
 Potential units sold per video = 5.34 million x 2% conversion rate = 106,800 units sold
 Potential revenue per video = 106,800 x $5 = $534,000
 Campaign cost (3-month contract) = $130,000
 Net profit = $534,000 - $130,000 = $404,000
-b. Dan Rhodes
 
+## b. Dan Rhodes
 Average views per video = 11.15 million
 Product cost = $5
 Potential units sold per video = 11.15 million x 2% conversion rate = 223,000 units sold
 Potential revenue per video = 223,000 x $5 = $1,115,000
 Campaign cost (3-month contract) = $130,000
 Net profit = $1,115,000 - $130,000 = $985,000
-c. Mister Max
 
+## c. Mister Max
 Average views per video = 14.06 million
 Product cost = $5
 Potential units sold per video = 14.06 million x 2% conversion rate = 281,200 units sold
 Potential revenue per video = 281,200 x $5 = $1,406,000
 Campaign cost (3-month contract) = $130,000
 Net profit = $1,406,000 - $130,000 = $1,276,000
+
 Best option from category: Mister Max
 
 # Discovery
