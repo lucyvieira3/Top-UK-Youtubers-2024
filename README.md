@@ -39,63 +39,55 @@ We need data on the top UK YouTubers in 2024 that includes their
 
 - Total videos uploaded
 
-## Where is the data coming from? The data is sourced from Kaggle (an Excel extract), <a href="https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download"> see here to find it.</a >
+Where is the data coming from? The data is sourced from Kaggle (an Excel extract), <a href="https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download"> see here to find it.</a >
 
-Stages
-Design
-Developement
-Testing
-Analysis
-Design
-Dashboard components required
-What should the dashboard contain based on the requirements provided?
+# Stages
+
+- Design
+- Developement
+- Testing
+- Analysis
+  
+# Design
+
+## Dashboard components required
+
 To understand what it should contain, we need to figure out what questions we need the dashboard to answer:
 
-Who are the top 10 YouTubers with the most subscribers?
-Which 3 channels have uploaded the most videos?
-Which 3 channels have the most views?
-Which 3 channels have the highest average views per video?
-Which 3 channels have the highest views per subscriber ratio?
-Which 3 channels have the highest subscriber engagement rate per video uploaded?
+- Who are the top 10 YouTubers with the most subscribers?
+- Which 3 channels have uploaded the most videos?
+- Which 3 channels have the most views?
+- Which 3 channels have the highest average views per video?
+- Which 3 channels have the highest views per subscriber ratio?
+- Which 3 channels have the highest subscriber engagement rate per video uploaded?
+
 For now, these are some of the questions we need to answer, this may change as we progress down our analysis.
 
-Dashboard mockup
-What should it look like?
-Some of the data visuals that may be appropriate in answering our questions include:
+# Dashboard mockup
 
-Table
-Treemap
-Scorecards
-Horizontal bar chart
-Dashboard-Mockup
+<img width="672" alt="dashboard_mockup" src="https://github.com/lucyvieira3/Top-UK-Youtubers-2024/assets/153330654/a8da7a86-672d-46b3-9eba-30d97a6c6074">
 
-Tools
-Tool	Purpose
-Excel	Exploring the data
-SQL Server	Cleaning, testing, and analyzing the data
-Power BI	Visualizing the data via interactive dashboards
-GitHub	Hosting the project documentation and version control
-Mokkup AI	Designing the wireframe/mockup of the dashboard
-Development
-Pseudocode
+## Tools Used 
+
+Excel - Exploring the data
+SQL Server - Cleaning, testing, and analyzing the data
+Power BI - Visualizing the data via interactive dashboards
+GitHub - Hosting the project documentation and version control
+
+## Development
+
 What's the general approach in creating this solution from start to finish?
-Get the data
-Explore the data in Excel
-Load the data into SQL Server
-Clean the data with SQL
-Test the data with SQL
-Visualize the data in Power BI
-Generate the findings based on the insights
-Write the documentation + commentary
-Publish the data to GitHub Pages
-Data exploration notes
-This is the stage where you have a scan of what's in the data, errors, inconcsistencies, bugs, weird and corrupted characters etc
 
-What are your initial observations with this dataset? What's caught your attention so far?
-There are at least 4 columns that contain the data we need for this analysis, which signals we have everything we need from the file without needing to contact the client for any more data.
-The first column contains the channel ID with what appears to be channel IDS, which are separated by a @ symbol - we need to extract the channel names from this.
-Some of the cells and header names are in a different language - we need to confirm if these columns are needed, and if so, we need to address them.
-We have more data than we need, so some of these columns would need to be removed
+1. Get the data
+2. Explore the data in Excel
+3. Load the data into SQL Server
+4. Clean the data with SQL
+5. Test the data with SQL
+6. Visualize the data in Power BI
+7. Generate the findings based on the insights
+8. Write the documentation + commentary
+9. Publish the data to GitHub Pages
+
 Data cleaning
 What do we expect the clean data to look like? (What should it contain? What contraints should we apply to it?)
 The aim is to refine our dataset to ensure it is structured and ready for analysis.
