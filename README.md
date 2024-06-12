@@ -39,7 +39,7 @@ We need data on the top UK YouTubers in 2024 that includes their
 
 - Total videos uploaded
 
-## Where is the data coming from? The data is sourced from Kaggle (an Excel extract), </a"https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download"> see here to find it.</a 
+## Where is the data coming from? The data is sourced from Kaggle (an Excel extract), <a href="https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download"> see here to find it.</a >
 
 Stages
 Design
