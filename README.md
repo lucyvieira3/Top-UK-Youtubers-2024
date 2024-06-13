@@ -174,9 +174,9 @@ RETURN viewsPerSubscriber
 
 ## 4. Which 3 channels have the most views?
 
-1	DanTDM
-2	Dan Rhodes
-3	Mister Max
+1. DanTDM
+2. Dan Rhodes
+3. Mister Max
 
 ## 5. Which 3 channels have the highest average views per video?
 
