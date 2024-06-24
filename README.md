@@ -4,9 +4,7 @@
 
 # Objective
 
-## What is the key pain point?
-
-We, the marketing team, wants to find out who the top YouTubers are in 2024 to decide on which YouTubers would be best to run marketing campaigns throughout the rest of the year.
+We (the marketing team) want to find out who the top YouTubers are in 2024 to decide on which YouTubers would be best to run marketing campaigns throughout the rest of the year.
 
 # Data source
 
